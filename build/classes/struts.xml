@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<constant name="struts.devMode" value="false" />
+	<constant name="struts.configuration.xml.reload" value="true" />
+	<!-- <constant name="struts.convention.package.locators" value="action" 
+		/> -->
+	<bean type="org.apache.struts2.dispatcher.multipart.MultiPartRequest"
+		name="TestAction2" class="com.erhuo.action.TestAction2" scope="prototype"
+		optional="true " />
+	<constant name="struts.multipart.handler" value="TestAction2" />
+	<package name="default" namespace="/" extends="struts-default,json-default">
+
+		<!-- 登录 -->
+		<action name="login" class="com.erhuo.action.LoginAction"
+			method="login" />
+
+		<!-- 获取指定条商品，按时间倒序排列 -->
+		<action name="getGoodsByTimeDESC" class="com.erhuo.action.GoodsAction"
+			method="getGoodsByTimeDESC" />
+
+		<!-- 根据商品ID获取全部商品评论 -->
+		<action name="getGoodsMessageListByGoodsid" class="com.erhuo.action.GoodsMessageAction"
+			method="getGoodsMessageListByGoodsid" />
+
+		<!-- 根据商品ID获取指定商品评论 -->
+		<action name="getGoodsMessageListByGoodsidDESC" class="com.erhuo.action.GoodsMessageAction"
+			method="getGoodsMessageListByGoodsidDESC" />
+
+		<!-- 随机生成size个goods -->
+		<action name="randomGoodsList" class="com.erhuo.action.GoodsAction"
+			method="randomGoodsList" />
+		<!-- 通过goodsid获取goods -->
+		<action name="getGoodsByGoodsid" class="com.erhuo.action.GoodsAction"
+			method="getGoodsByGoodsid" />
+
+		<action name="getCollectionStatus" class="com.erhuo.action.CollectionAction"
+			method="getCollectionStatus" />
+
+		<!-- 通过typeid获取商品列表 -->
+		<action name="getGoodsListByTypeid" class="com.erhuo.action.GoodsAction"
+			method="getGoodsListByTypeid" />
+
+		<!-- 搜索商品，通过keyword获取商品List -->
+		<action name="searchGoods" class="com.erhuo.action.SearchAction"
+			method="searchGoods" />
+
+		<!-- 通过userid获取商品列表 -->
+		<action name="getGoodsListByUserid" class="com.erhuo.action.GoodsAction"
+			method="getGoodsListByUserid" />
+
+		<!-- 通过userid来获取收藏的商品List -->
+		<action name="getCollectionGoodsListByUserid" class="com.erhuo.action.CollectionAction"
+			method="getCollectionGoodsListByUserid" />
+
+		<!-- 通过userid来获取收藏的商品List -->
+		<action name="getCollectionListByUserid" class="com.erhuo.action.CollectionAction"
+			method="getCollectionGoodsListByUserid" />
+
+		<!-- 添加收藏夹 -->
+		<action name="addCollection" class="com.erhuo.action.CollectionAction"
+			method="addCollection" />
+
+		<!-- 通过userid,goodsid判断是否收藏 -->
+		<action name="getCollectionStatus" class="com.erhuo.action.CollectionAction"
+			method="getCollectionStatus" />
+
+		<!-- 通过userid获取user详细信息 -->
+		<action name="getUser" class="com.erhuo.action.UserAction"
+			method="getUser" />
+
+		<!-- 通过wantid获取所有求购评论 -->
+		<action name="getWantMessageByWantid" class="com.erhuo.action.WantMessageAction"
+			method="getWantMessageByWantid" />
+
+		<!-- 发布商品评论 -->
+		<action name="publishGoodsMessage" class="com.erhuo.action.GoodsMessageAction"
+			method="publishGoodsMessage" />
+
+		<!-- 随机生成size个goods，通过最大值减最小值获得随机个数 -->
+		<action name="randomGoodsListByResult" class="com.erhuo.action.GoodsAction"
+			method="randomGoodsListByResult" />
+
+		<!-- 发布求购信息 -->
+		<action name="publishWant" class="com.erhuo.action.WantAction"
+			method="publishWant" />
+
+		<!-- 获取求购所有列表 -->
+		<action name="getWantList" class="com.erhuo.action.WantAction"
+			method="getWantList" />
+
+		<!-- 通过wantid获取所有求购评论 -->
+		<action name="getWantMessageByWantid" class="com.erhuo.action.WantMessageAction"
+			method="getWantMessageByWantid" />
+
+		<!-- 获取一条求购信息 -->
+		<action name="getWantByWantId" class="com.erhuo.action.WantAction"
+			method="getWantByWantId" />
+
+		<!-- 通过userselfid，otheruserid添加用户关注 -->
+		<action name="addConcernedUsers" class="com.erhuo.action.ConcernedUsersAction"
+			method="addConcernedUsers" />
+
+		<!-- 通过userseltif获取所关注的所有用户 -->
+		<action name="getConcernedUsers" class="com.erhuo.action.ConcernedUsersAction"
+			method="getConcernedUsers" />
+
+		<!-- 获取所有商品列表 -->
+		<action name="getGoodsList" class="com.erhuo.action.GoodsAction"
+			method="getGoodsList" />
+
+		<!-- 获取免费商品 -->
+		<action name="getFreeGoodsList" class="com.erhuo.action.GoodsAction"
+			method="getFreeGoodsList" />
+
+		<!-- 获取某人求购列表 -->
+		<action name="getWantListByUserid" class="com.erhuo.action.WantAction"
+			method="getWantListByUserid" />
+			
+			<action name="getBanner" class="com.erhuo.action.BannerAction"
+			method="getBanner"/>
+
+		<action name="test" class="com.erhuo.action.TestAction" method="TestAction" />
+
+		<action name="test2" class="com.erhuo.action.TestAction2"
+			method="TestAction" />
+
+	</package>
+</struts>
